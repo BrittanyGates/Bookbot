@@ -3,9 +3,9 @@ from stats import count_words
 from stats import count_characters
 from stats import sort_dict
 
-def get_book_text(filepath):
+def get_book_text(filepath: str):
     with open(filepath) as file:
-        file_contents = file.read()
+        file_contents: str = file.read()
         return file_contents
 
 
@@ -14,11 +14,11 @@ def main():
         print("Usage: python3 main.py <path_to_book>")
         sys.exit(1)
     else:
-        text = get_book_text(sys.argv[1])
+        text: str = get_book_text(sys.argv[1])
 
-    total_words = count_words(text)
-    character_count = count_characters(text)
-    sorted_dict = sort_dict(character_count)
+    total_words: str = count_words(text)
+    character_count: dict = count_characters(text)
+    sorted_dict: dict = sort_dict(character_count)
 
     print("============ BOOKBOT ============\n")
     print(f"Analyzing book found at {sys.argv[1]}...\n")
@@ -34,5 +34,5 @@ def main():
 
     print("============= END ===============")
 
-
-main()
+if __name__ == "__main__":
+    main()
